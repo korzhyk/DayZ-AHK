@@ -29,7 +29,7 @@ F1:: ; Press F1 in server browser with selected server to start "BruteForce"
     JoinToggle := !JoinToggle
     If (JoinToggle)
     {
-        SetTimer, JoinServer, 1000 ; 1000 in milliseconds is 1 second
+        SetTimer, JoinServer, 2000 ; 1000 in milliseconds is 1 second
     }
     else
     { 
@@ -37,13 +37,14 @@ F1:: ; Press F1 in server browser with selected server to start "BruteForce"
     }
     JoinServer:
     {
-    	IfWinNotActive, DayZ
-    		Return
-        WinGetPos, X, Y, Width, Height, DayZ
-        MouseMove, Width * 0.5, Height * 0.54
-        Send, {Enter}
-        Sleep, 100
-        Send, {Enter}
+        IfWinActive, DayZ
+        {
+            WinGetPos, X, Y, Width, Height, DayZ
+            MouseMove, Width * 0.5, Height * 0.54
+            Send, {Enter}
+            Sleep, 100
+            Send, {Enter}
+        }
         Return
     }
 Return
