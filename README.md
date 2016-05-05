@@ -37,14 +37,11 @@ F1:: ; Press F1 in server browser with selected server to start "BruteForce"
     }
     JoinServer:
     {
-        IfWinActive, DayZ
-        {
-            WinGetPos, X, Y, Width, Height, DayZ
-            MouseMove, Width * 0.5, Height * 0.54
-            Send, {Enter}
-            Sleep, 100
-            Send, {Enter}
-        }
+        WinGetPos, X, Y, Width, Height, DayZ
+        MouseMove, Width * 0.5, Height * 0.54
+        Send, {Enter}
+        Sleep, 100
+        Send, {Enter}
         Return
     }
 Return
