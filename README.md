@@ -11,40 +11,43 @@ SendMode Input  ; Recommended for new scripts due to its superior speed and reli
 
 ; Author Brent Plays [checkout my Fb page www.facebook.combrentplays]
 F4:: ; Press F4 in game to activate Sprint Mode
-	SprintToggle := !SprintToggle
-	If (SprintToggle)
-	{
-		Send, {lshift Down}
-		Send, {w Down}
-	}
-	else
-	{
-		Send, {lshift up}
-		Send, {w up}
-	}
+    SprintToggle := !SprintToggle
+    If (SprintToggle)
+    {
+        Send, {LShift Down}
+        Send, {W Down}
+    }
+    else
+    {
+        Send, {LShift Up}
+        Send, {W Up}
+    }
 Return
 
 ; Author Andrii Korzh github.com/korzhyk
 F1:: ; Press F1 in server browser with selected server to start "BruteForce"
-	JoinToggle := !JoinToggle
-	If (JoinToggle)
-	{ 
-		SetTimer, JoinServer, 1000 ; 1000 in milliseconds is 1 second (every second AHK press Enter)
-	}
-	else
-	{ 
-		SetTimer, JoinServer, Off
-	}
-	JoinServer:
-	{
-		Send, {Enter}
-		WinGetPos, X, Y, Width, Height, DayZ
-		Left := Round(Width * 0.5)
-		Top := Round(Height * 0.54)
-		MouseMove, %Left%, %Top%
-		Return
-	}
+    JoinToggle := !JoinToggle
+    If (JoinToggle)
+    {
+        SetTimer, JoinServer, 1000 ; 1000 in milliseconds is 1 second
+    }
+    else
+    { 
+        SetTimer, JoinServer, Off
+    }
+    JoinServer:
+    {
+    	IfWinNotActive, DayZ
+    		Return
+        WinGetPos, X, Y, Width, Height, DayZ
+        MouseMove, Width * 0.5, Height * 0.54
+        Send, {Enter}
+        Sleep, 100
+        Send, {Enter}
+        Return
+    }
 Return
+
 ```
 
 ## How to use this script
