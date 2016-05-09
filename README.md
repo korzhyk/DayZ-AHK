@@ -32,7 +32,7 @@ F1:: ; Press F1 in server browser with selected server to start "BruteForce"
 Return
 
 ; Author Andrii Korzh github.com/korzhyk
-F2:: ; Press F1 in server browser with selected server to start "BruteForce"
+F2:: ; Press F2 in main menu to start "BruteForce"
     FastJoinToggle := !FastJoinToggle
     If (FastJoinToggle)
     {
