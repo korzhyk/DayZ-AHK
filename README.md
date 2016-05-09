@@ -51,26 +51,6 @@ F2:: ; Press F2 in main menu to start "BruteForce"
     }
 Return
 
-; Author Andrii Korzh github.com/korzhyk
-F2:: ; Press F2 in server browser with selected server to start "Refresh"
-    RefreshToggle := !RefreshToggle
-    If (RefreshToggle)
-    {
-        SetTimer, ToggleRefresh, 2000 ; 1000 in milliseconds is 1 second
-    }
-    else
-    { 
-        SetTimer, ToggleRefresh, Off
-    }
-    ToggleRefresh:
-    {
-        WinGetPos, X, Y, Width, Height, DayZ
-        MouseMove, Width * 0.08, Height * 0.83
-        Send, {Enter}
-        Return
-    }
-Return
-
 ; Author Brent Plays [checkout my Fb page www.facebook.combrentplays]
 F4:: ; Press F4 in game to activate Sprint Mode
     SprintToggle := !SprintToggle
